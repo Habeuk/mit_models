@@ -5,6 +5,7 @@ namespace Drupal\mit_models\Plugin\Layout\Sections;
 use Drupal\bootstrap_styles\StylesGroup\StylesGroupManager;
 use Drupal\formatage_models\FormatageModelsThemes;
 use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * A contact section layout from mit_models
@@ -64,6 +65,42 @@ class MitModelsCardSection extends FormatageModelsSection {
   /**
    *
    * {@inheritdoc}
+   */
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+    $form = parent::buildConfigurationForm($form, $form_state);
+    
+    $form['class_row'] = [
+      '#type' => 'textfield',
+      '#title' => 'Class row',
+      '#default_value' => $this->configuration['class_row']
+    ];
+    $form['class_col_left'] = [
+      '#type' => 'textfield',
+      '#title' => 'class_col_left',
+      '#default_value' => $this->configuration['class_col_left']
+    ];
+    $form['class_col_right'] = [
+      '#type' => 'textfield',
+      '#title' => 'class_col_right',
+      '#default_value' => $this->configuration['class_col_right']
+    ];
+    return $form;
+  }
+  
+  /**
+   *
+   * {@inheritdoc}
+   */
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+    parent::submitConfigurationForm($form, $form_state);
+    $this->configuration['class_row'] = $form_state->getValue('class_row');
+    $this->configuration['class_col_left'] = $form_state->getValue('class_col_left');
+    $this->configuration['class_col_right'] = $form_state->getValue('class_col_right');
+  }
+  
+  /**
+   *
+   * {@inheritdoc}
    *
    */
   function defaultConfiguration() {
@@ -71,6 +108,9 @@ class MitModelsCardSection extends FormatageModelsSection {
       'load_libray' => true,
       'region_css_mc_title' => 'h1',
       'region_tag_mc_title' => 'h2',
+      'class_row' => '',
+      'class_col_left' => 'col-lg-6',
+      'class_col_right' => 'col-lg-6 pt-3 pt-lg-0',
       'derivate' => [
         'value' => 'select',
         'options' => [

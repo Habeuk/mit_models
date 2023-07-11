@@ -1,9 +1,9 @@
 {% if content %}
 	<div {{ attributes.addClass(['mitor-card'])}}>
-		<div class="container">
-			<div class="row">
+		<div {% if settings.config_section %} class="{{ settings.config_section.type_container }} {{ settings.config_section.container_class }}" {% else %} class="container" {% endif %}>
+			<div class="row {{settings.class_row}}">
 				<div
-					class="mitor-card__img col-lg-6">
+					class="mitor-card__img  {{settings.class_col_left}}">
 					{#% if content.mc_image %#}
 					<div
 						class="img-bloc row" {#{ region_attributes.mc_image.addClass('img-bloc') } #}>
@@ -23,7 +23,7 @@
 					</div>
 					{#% endif %#}
 				</div>
-				<div class="mitor-card__body col-lg-6 pt-3 pt-lg-0">
+				<div class="mitor-card__body {{settings.class_col_right}}">
 					{% if content.mc_title %}
 						{% if settings.region_tag_mc_title %}
 						<{{settings.region_tag_mc_title}} {{ region_attributes.mc_title.addClass('mc-title')}}
