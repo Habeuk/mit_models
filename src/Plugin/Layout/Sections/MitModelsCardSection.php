@@ -130,7 +130,8 @@ class MitModelsCardSection extends FormatageModelsSection {
           'mitor-card--right mitor-card--video' => 'right-video',
           'mitor-card--right mitor-card--reverse mitor-card--video' => 'right-reverse-video',
           'mitor-card--left mitor-card--video' => 'left-video',
-          'mitor-card--left mitor-card--video mitor-card--reverse' => 'left-video-reverse'
+          'mitor-card--left mitor-card--video mitor-card--reverse' => 'left-video-reverse',
+          'mitor-card--left mitor-card--center-image' => 'mitor-card--left--center-image'
         ]
       ],
       'region_tag_title' => 'h1',
