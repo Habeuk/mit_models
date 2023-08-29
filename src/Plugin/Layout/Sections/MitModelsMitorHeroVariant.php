@@ -43,7 +43,7 @@ class MitModelsMitorHeroVariant extends FormatageModelsSection {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'mit_models') . "/icones/sections/mit_models_hero_variant.png");
+    $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'mit_models') . "/icones/sections/mit_models_hero_variant.png");
   }
   
   /**
@@ -82,7 +82,7 @@ class MitModelsMitorHeroVariant extends FormatageModelsSection {
           'mitor-hero-2--pyramid' => 'Pyramid',
           'mitor-hero-2--ocean' => 'Ocean',
           'mitor-hero-2--titi' => 'Titi',
-          'mitor-hero-2--ocean' => 'Wave ocean',
+          'mitor-hero-2--wave-ocean' => 'Wave ocean',
           'mitor-hero-2--text-left' => 'Text left'
         ]
       ],
