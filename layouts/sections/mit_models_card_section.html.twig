@@ -28,11 +28,11 @@
 						{% if settings.region_tag_mc_title %}
 						<{{settings.region_tag_mc_title}} {{ region_attributes.mc_title.addClass('mc-title')}}
 							{{ content.mc_title }}
-						</{{settings.region_tag_mc_title}}
+						</{{settings.region_tag_mc_title}}>
 						{% else %}
-						<h1 {{ region_attributes.mc_title.addClass('mc-title')}}>
-							{{ content.mc_title }}
-						</h1>
+    						<h1 {{ region_attributes.mc_title.addClass('mc-title')}}>
+    							{{ content.mc_title }}
+    						</h1>
 						{% endif %}
 					{% endif %}
 					{% if content.mc_description %}
